@@ -1,11 +1,14 @@
+#imports all used libraries
 import time
 import os
 import pyautogui
 import jetson.inference
 import jetson.utils
 print("it's on!")
+#pauses to let user open camera
 time.sleep(10)
 count = 0
+#main loop, presses i to take a photo and then check for cat procedrally
 for i in range(5):
      pyautogui.press("i")
      time.sleep(1)
@@ -20,7 +23,9 @@ for i in range(5):
          print("That's a cat!! A cat is present!")
      else:
          print("No cat present!")
+     #sleeps before it reruns
      time.sleep(2)
      count += 1
      print(count)
      os.remove("/home/e104/my_photo-1.jpg")
+     #makes sure that there are no redundant photos
